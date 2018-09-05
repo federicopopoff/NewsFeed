@@ -6,26 +6,19 @@
                 <div class="container">
             <div class="span-24 reader">
                 <div class="span-5" id="feedListPanel">
-                    <% Html.RenderPartial("FeedList"); %>
+                    @Html.RenderPartial("FeedList");
                 </div>
                 <div class="span-19 last">
                     <div class="span-19 last" id="channelPanel">
 
-                        <%
-                        if (Model.Feeds.Count == 0)
+                        @if (Model.Feeds.Count == 0)
                         {
-                        %>
-                        <% Html.RenderPartial("BlankState"); %>
-                        <%
+                          @Html.Partial("BlankState");
                         }
                         else
                         {
-
-
-                        Html.RenderPartial("ChannelPanel", Model.NewsItems);
-
+                           @Html.Partial("ChannelPanel", Model.NewsItems);
                         }
-                        %>
 
                     </div>
                     <div class="span-19 last" id="displayPanel">
@@ -35,10 +28,10 @@
                     </div>
                 </div>
                 <div class="modalContainer" id="addFeedModal">
-                    <% Html.RenderPartial("AddFeedForm", Model.NewFeed); %>
+                    @Html.Partial("AddFeedForm", Model.NewFeed);
                 </div>
                 <div class="modalContainer" id="deleteFeedModal">
-                    <% Html.RenderPartial("DeleteFeedForm", Model.NewFeed); %>
+                    @Html.Partial("DeleteFeedForm", Model.NewFeed);@
                 </div>
             </div>
         </div>

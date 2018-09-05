@@ -2,9 +2,8 @@
     @Model RSSReader.Models.Feed
 
     Delete : RSSReader
-
-
+    
     <div class="container">
         <h2>Are you sure?</h2>
-        <% Html.RenderPartial("DeleteFeedForm"); %>
+        @Html.Partial("DeleteFeedForm")
     </div>
