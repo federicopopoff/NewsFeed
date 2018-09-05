@@ -1,13 +1,11 @@
-﻿<%
-    if (Request.IsAuthenticated) {
-%>
-        Welcome <b><%= Html.Encode(Page.User.Identity.Name) %></b>!
-        [ <%= Html.ActionLink("Log Out", "LogOff", "Account") %> ]
-<%
-    }
-    else {
-%> 
-        [ <%= Html.ActionLink("Log In", "LogOn", "Account") %> ]
-<%
-    }
-%>
+﻿@if (Request.IsAuthenticated)
+{
+
+    <b> Welcome </b> @Html.Encode(Page.User.Identity.Name) @Html.ActionLink("Log Out", "LogOff", "Account")
+
+}
+else
+{
+   @Html.ActionLink("Log In", "LogOn", "Account")
+
+}

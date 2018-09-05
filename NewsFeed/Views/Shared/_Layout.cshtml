@@ -20,10 +20,10 @@
         <div class="container">
             <div class="span-24">
                 <div class="span-18" id="title">
-                    <h1><%=Url.Action("RSSReader", "Index")%></h1>
+                    <h1>@Html.ActionLink("NewsFeed App", "Index")</h1>
                 </div>
                 <div class="span-6 last" id="logindisplay">
-                    <% Html.RenderPartial("LogOnUserControl"); %>
+                    @Html.Partial("LogOnUserControl")
                 </div>
             </div>
         </div>
