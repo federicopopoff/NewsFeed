@@ -1,11 +1,11 @@
 ﻿@if (Request.IsAuthenticated)
 {
 
-    <b> Welcome </b> @Html.Encode(Page.User.Identity.Name) @Html.ActionLink("Log Out", "LogOff", "Account")
+    <b> Welcome </b> @HttpContext.Current.User.Identity.Name <text> </text> @Html.ActionLink("Log Out", "LogOff", "Account")
 
 }
 else
 {
-   @Html.ActionLink("Log In", "LogOn", "Account")
+    @Html.ActionLink("Log In", "LogOn", "Account")
 
 }
