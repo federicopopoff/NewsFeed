@@ -1,4 +1,5 @@
-<%@ Control Language="C#" Inherits="System.Web.Mvc.ViewUserControl<RSSReader.Models.Feed>" %>
+@Model RSSReader.Models.Feed
+
 <% using (Html.BeginForm("Add", "Feed"))
    {
     %>
