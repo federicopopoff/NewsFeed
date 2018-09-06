@@ -5,8 +5,6 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsFeed", "NewsFeed\NewsFeed.csproj", "{E3DD05A6-C049-4BAE-96AC-B269FB62CA0D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsFeed.Tests", "NewsFeed.Tests\NewsFeed.Tests.csproj", "{38040980-838C-4B16-B35A-D00782B4FE56}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,10 +15,6 @@ Global
 		{E3DD05A6-C049-4BAE-96AC-B269FB62CA0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E3DD05A6-C049-4BAE-96AC-B269FB62CA0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E3DD05A6-C049-4BAE-96AC-B269FB62CA0D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{38040980-838C-4B16-B35A-D00782B4FE56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{38040980-838C-4B16-B35A-D00782B4FE56}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{38040980-838C-4B16-B35A-D00782B4FE56}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{38040980-838C-4B16-B35A-D00782B4FE56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
