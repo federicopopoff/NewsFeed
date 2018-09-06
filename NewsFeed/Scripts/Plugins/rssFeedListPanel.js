@@ -5,7 +5,7 @@
         return this.each(function() {
             var $element = $(this);
 
-            $('a.feed', $element).live('click', function() {
+            $('a.feed', $element).on('click', function() {
                 var $this = $(this);
                 var href = $this.attr('href');
                 var displayPanel = $(options.displayPanel);

@@ -16,12 +16,12 @@
         feedList: feedList
     });
 
-    $('form#addFeed input[type=submit]').live('click', function() {
+    $('form#addFeed input[type=submit]').on('click', function() {
         addFeedDialog.dialog('open');
         return false;
     });
 
-    $('form#deleteFeed input[type=submit]').live('click', function() {
+    $('form#deleteFeed input[type=submit]').on('click', function() {
         deleteFeedDialog.dialog('open');
         return false;
     });

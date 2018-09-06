@@ -1,11 +1,12 @@
 
-    @Model RSSReader.ViewModels.FeedReaderViewModel
+    @model RSSReader.ViewModels.FeedReaderViewModel
 
     <div class="feeds">
         @if (Model.Feeds.Count > 0)
         {
+          var className = "";
+
         <ul>
-            string className;
             @foreach (var feed in Model.Feeds)
             {
             className = "feed";
@@ -19,19 +20,19 @@
         }
     </div>
     <div class="controlPanel">
-        @using (Html.BeginForm("Add", "Feed", FormMethod.Get,new { id = "addFeed" }))
+        @using (Html.BeginForm("Add", "Feed", FormMethod.Get, new { id = "addFeed" }))
         {
-        <input type="submit" value="Subscribe" />
-        };
-        @using (Html.BeginForm("Delete", "Feed", new {Id = Model.CurrentFeedId}, FormMethod.Get, new {id = "deleteFeed"}))
-        {
-        if (Model.CurrentFeedId > 0)
-        {
-        <input type="submit" value="Delete" />
+            <input type="submit" value="Subscribe" />
         }
-        else
+        @using (Html.BeginForm("Delete", "Feed", new { Id = Model.CurrentFeedId }, FormMethod.Get, new { id = "deleteFeed" }))
         {
-        <input type="submit" value="Delete" disabled="disabled" />
+            if (Model.CurrentFeedId > 0)
+            {
+                <input type="submit" value="Delete" />
+            }
+            else
+            {
+                <input type="submit" value="Delete" disabled="disabled" />
+            }
         }
-        };
     </div>

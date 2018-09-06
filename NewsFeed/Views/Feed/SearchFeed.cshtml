@@ -1,0 +1,12 @@
+
+
+<label>
+    Search news:
+    <input type="text" id="myHtmlInputElementId" name="myText" />
+</label>
+
+    @Html.ActionLink("Search", "Search", null, new { onclick = "this.href += '?searchText=' + document.getElementById('myHtmlInputElementId').value;" })
+
+<div class="addFailure">
+    There was a problem searchinng that feed. Please check the text and try again.
+</div>

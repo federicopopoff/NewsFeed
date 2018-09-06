@@ -1,38 +1,42 @@
 
-    @Model RSSReader.ViewModels.FeedReaderViewModel
+@model RSSReader.ViewModels.FeedReaderViewModel
 
-        My Feeds : RSSReader
+<div class="container">
+    <div>
+        @Html.Partial("SearchFeed")
+    </div>
 
-                <div class="container">
-            <div class="span-24 reader">
-                <div class="span-5" id="feedListPanel">
-                    @Html.RenderPartial("FeedList");
-                </div>
-                <div class="span-19 last">
-                    <div class="span-19 last" id="channelPanel">
+    @Html.ActionLink("Get All", "GetAll")
 
-                        @if (Model.Feeds.Count == 0)
-                        {
-                          @Html.Partial("BlankState");
-                        }
-                        else
-                        {
-                           @Html.Partial("ChannelPanel", Model.NewsItems);
-                        }
+    <div class="span-24 reader">
+        <div class="span-5" id="feedListPanel">
+            @Html.Partial("FeedList")
+        </div>
+        <div class="span-19 last">
+            <div class="span-19 last" id="channelPanel">
 
-                    </div>
-                    <div class="span-19 last" id="displayPanel">
-                        <div class="displayFrameContainer">
-                            <iframe src=""></iframe>
-                        </div>
-                    </div>
-                </div>
-                <div class="modalContainer" id="addFeedModal">
-                    @Html.Partial("AddFeedForm", Model.NewFeed);
-                </div>
-                <div class="modalContainer" id="deleteFeedModal">
-                    @Html.Partial("DeleteFeedForm", Model.NewFeed);@
+                @if (Model.Feeds.Count == 0)
+                {
+                    @Html.Partial("BlankState");
+                }
+                else
+                {
+                    @Html.Partial("ChannelPanel", Model.NewsItems);
+                }
+
+            </div>
+            <div class="span-19 last" id="displayPanel">
+                <div class="displayFrameContainer">
+                    <iframe src=""></iframe>
                 </div>
             </div>
         </div>
-        <script type="text/javascript" src="/Scripts/Feed/FeedViewer.js"></script>
+        <div class="modalContainer" id="addFeedModal">
+            @Html.Partial("AddFeedForm", Model.NewFeed);
+        </div>
+        <div class="modalContainer" id="deleteFeedModal">
+            @Html.Partial("DeleteFeedForm", Model.NewFeed);
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="/Scripts/Feed/FeedViewer.js"></script>

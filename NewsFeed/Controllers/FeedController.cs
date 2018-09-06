@@ -58,6 +58,26 @@ namespace RSSReader.Controllers
             }
         }
 
+
+        public ActionResult GetAll()
+        {
+            var model = CreateViewModel(null, HttpContext.User.Identity.Name);
+            List<NewsItem> listAll = GetAllFromReader(model.Feeds);
+            model.NewsItems = listAll;
+
+            return View("Index", model);
+        }
+
+        public ActionResult Search(string searchText)
+        {
+            var model = CreateViewModel(null, HttpContext.User.Identity.Name);
+            List<NewsItem> allItems = GetAllFromReader(model.Feeds);
+
+            var match = allItems.Where(NewsItem => NewsItem.Headline.Contains(searchText)).ToList();
+            model.NewsItems = match;
+            return View("Index", model);
+        }
+
         public ActionResult Add()
         {
             return View(new Feed());
@@ -144,6 +164,23 @@ namespace RSSReader.Controllers
             }
 
             return viewModel;
+        }
+
+        private List<NewsItem> GetAllFromReader(List<Feed> feeds)
+        {
+            List<NewsItem> listAll = new List<NewsItem>();
+            foreach (Feed item in feeds)
+            {
+                XmlDocument xmlDoc = FeedLoader.LoadXML(item.Url);
+                if (xmlDoc != null)
+                {
+                    RSSFeedReader feedReader = new RSSFeedReader(xmlDoc);
+                    listAll.AddRange(feedReader.ReadItems());
+                }
+
+            }
+
+            return listAll;
         }
     }
 }
